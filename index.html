@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+
+<body>
+  <h1> Τοπική αποθήκευση </h1>
+
+  <div id="askName" style="display:none;">
+<h2>Πως σε λένε? </h2>
+<input type="text" id="nameInput" placeholder="Γράψε όνομα">
+<button onclick="saveName()"> Συνέχεια </button>
+  </div>
+
+
+  <div id="welcome" style="display:none;">
+    <h2 id="welcomeText"> </h2>
+    <button onclick="changeName()"> Αλλαγή ονόματος </button>
+</div>
+
+
+<script>
+windows.onload = function() {
+
+  checkUser();
+}
+
+function checkUser() {
+   const savedName = localStorage.getItem("username");
+
+   if (savedName) {
+    document.getElementById("askName").style.display="none";
+    document.getElementById("welcome").style.display="block";
+    document.getElementById("welcomeText").innerText = "Γειά σου " + savedName;
+
+   }
+   else {
+     document.getElementById("askName").style.display="block";
+     document.getElementById("welcome").style.display="none";
+
+   }
+}
+
+
+function saveName() {
+const name = document.getElementById('nameInput').value.trim();
+
+if (name !=="") {
+localStorage.setItem("username",name);
+checkUser();
+
+}
+}
+
+
+
+
+function changeName() {
+
+localStorage.removeItem("username",name);
+document.getElementById("nameInput").value="";
+checkUser();
+
+
+}
+
+
+</script>
+
+</body>
+
+
+
+</html>
+
+
+<!--  function sayHello() {
+return "Hello";
+}
+
+let hello = sayHello();
+
+document.getElementById('check').innerHTML = hello;
+
+
+function sayHello(name) {
+return "Hello " + name;
+}
+
+let hello = sayHello("Giannis");
+
+document.getElementById('check').innerHTML = hello;
+
+function add(a, b) {
+return a + b;
+}
+
+let result = add(5,6);
+
+document.getElementById('check').innerHTML = "To apotesma einai " + result;
+
+
+
+function totalSum() {
+let sum = 0;
+
+numbers = [100,200,300,600]
+
+  for (let i=0; i<numbers.length; i++ ) {
+  sum += numbers[i] ;
+
+  }
+
+  return sum;
+}
+
+const cars = ["BMW", "SKODA", "MERCEDES"];
+
+let lista = cars.toString();
+
+document.getElementById('check').innerHTML = lista;
+
+
+const cars = ["BMW", "SKODA", "MERCEDES"];
+
+let lista = cars.at(1);
+
+document.getElementById('check').innerHTML = lista;
+
+
+const cars = ["BMW", "SKODA", "MERCEDES"];
+
+document.getElementById('check').innerHTML = cars;
+
+
+cars.pop();
+
+d
+const cars = ["BMW", "SKODA", "MERCEDES"];
+
+document.getElementById('check').innerHTML = cars;
+
+
+cars.push("Porche");
+
+document.getElementById('check2').innerHTML = cars;
